@@ -11,7 +11,6 @@ public class CharacterApp {
 	
 		Scanner input = new Scanner(System.in);
 		
-		//String characterName;
 		String prompt;
 		String regex = "(role|connection)";
 		String yeaNay;
