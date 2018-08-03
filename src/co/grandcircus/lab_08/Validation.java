@@ -1,11 +1,11 @@
-package co.grandcircus.fbjava_july2018.lab_08;
+package co.grandcircus.lab_08;
 
 import java.util.Scanner;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.InputMismatchException;
-import java.util.Scanner;
+
 
 	
 	public class Validation {

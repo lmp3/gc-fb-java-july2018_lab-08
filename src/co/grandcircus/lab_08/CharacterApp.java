@@ -1,26 +1,23 @@
-package co.grandcircus.fbjava_july2018.lab_08;
+package co.grandcircus.lab_08;
 
 import java.util.Scanner;
-//import java.util.regex.Matcher;
 
-public class Lab_08 {
+public class CharacterApp {
 	public static void main(String[] args) {
 			
-	// Task: Write a program that will recognize invalid inputs when the
-	// user requests information about students in a class.
-
-// Characters from the Brad Neely web short The Professor Brothers, later made into as series called China, IL.
+	// Task: Write a program that will recognize invalid inputs when the user requests information
+	// about students in a class. (Characters from the Brad Neely web short series The Professor Brothers, later
+	// made into as regular series called China, IL. are used instead.)
 	
 		Scanner input = new Scanner(System.in);
 		
 		//String characterName;
 		String prompt;
-		String regex = "(roles|connection)";
+		String regex = "(role|connection)";
 		String yeaNay;
 		int characterNum;
 		int min = 1;
 		int max = 9;
-		//regex = ?
 
 		String[] characters = new String[9];
 		characters[0] = "Baby Cakes";
@@ -33,16 +30,18 @@ public class Lab_08 {
 		characters[7] = "Sammy Davis";
 		characters[8] = "Steve Smith";
 		
-		String[] roles = new String[9];
-		roles[0] = "Student";
-		roles[1] = "History Teacher";
-		roles[2] = "School Dean";
-		roles[3] = "History Teacher";
-		roles[4] = "Town Mayor";
-		roles[5] = "Teacher of \"Super Science\"";
-		roles[6] = "History Teacher Assistant";
-		roles[7] = "History Teacher";
-		roles[8] = "History Teacher";
+		//TODO Gender: he, she, and them. Used so that character names are not repeated in the same sentence.
+		
+		String[] role = new String[9];
+		role[0] = "Student";
+		role[1] = "History Teacher";
+		role[2] = "School Dean";
+		role[3] = "History Teacher";
+		role[4] = "Town Mayor, an antagonist";
+		role[5] = "Teacher of \"Super Science\"";
+		role[6] = "History Teacher Assistant";
+		role[7] = "History Teacher";
+		role[8] = "History Teacher";
 		
 		String[] connection = new String[9];
 		connection[0] = "Son of Professor Cakes";
@@ -62,27 +61,30 @@ public class Lab_08 {
 
 		characterNum = Validation.getInt(input, prompt, min, max);
 		
-			System.out.println("You have chosen the character " + characters[characterNum-1] + ". What would you like to know"
-					+ " more about " + characters[characterNum-1] + "? (enter \"roles\" or \"connection\"): ");
+			System.out.println("You have chosen the character " + characters[characterNum-1] + ". What more would you"
+					+ " like to know about " + characters[characterNum-1]
+					+ "? (enter \"role\" or \"connection\"): ");
 		
 			String userChoice = Validation.getStringMatchingRegex(input, "", regex);
 			
-			if (userChoice.equalsIgnoreCase("roles")) {
-				System.out.println("You have chosen to know what " + characters + " role a and they " + roles);
+			if (userChoice.equalsIgnoreCase("role")) {
+				System.out.println(characters[characterNum-1] + " has the role of " + role[characterNum-1] + " at"
+						+ " the univerity.");
 			}
 			
 			if (userChoice.equalsIgnoreCase("connection")) {
-				System.out.println(connection[characterNum]);
+				System.out.println(characters[characterNum-1] + " is the " +connection[characterNum-1] + " .");
 			}
-			//TODO logic to allow user to chose opposite  
+			//TODO logic to allow user to chose opposite question for character instead of starting completely over.
 		System.out.println("");
 		System.out.print("Do you want to continue (y/n)? ");
 		yeaNay = input.next();
 		
 		} while (yeaNay.equals("y"));	
 		
+		//TODO Implement true validation here.
 		System.out.println("Goodbye.");
-		
+
 		input.close();
 	}
 }
