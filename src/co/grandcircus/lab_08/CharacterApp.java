@@ -79,9 +79,9 @@ public class CharacterApp {
 		System.out.print("Do you want to continue (y/n)? ");
 		yeaNay = input.next();
 		
-		} while (yeaNay.equals("y"));	
+		} while (yeaNay.equalsIgnoreCase("y"));	
 		
-		//TODO Implement true validation here.
+		//TODO Implement true validation here, method already available in class Validator.java.
 		System.out.println("Goodbye.");
 
 		input.close();
